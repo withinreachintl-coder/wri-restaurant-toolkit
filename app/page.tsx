@@ -28,7 +28,7 @@ export default function LandingPage() {
               Restaurant Toolkit
             </span>
           </div>
-          <Link
+          <a
             href="/login"
             style={{
               fontFamily: 'var(--font-dmsans)',
@@ -39,10 +39,11 @@ export default function LandingPage() {
               borderRadius: '4px',
               padding: '8px 20px',
               textDecoration: 'none',
+              display: 'inline-block',
             }}
           >
             Log In
-          </Link>
+          </a>
         </div>
       </nav>
 
