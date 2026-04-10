@@ -111,6 +111,34 @@ export default function LandingPage() {
           }}>Start 14-Day Free Trial</a>
         </div>
       </section>
+
+      {/* CTA */}
+      <section style={{ padding: '80px 24px', textAlign: 'center' }}>
+        <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '36px', fontWeight: 700, marginBottom: '16px' }}>
+          Ready to run a tighter operation?
+        </h2>
+        <p style={{ color: '#A8A29E', fontSize: '16px', marginBottom: '32px' }}>
+          Start your free trial. No credit card. Cancel anytime.
+        </p>
+        <a href="/signup" style={{
+          background: '#D97706', color: '#fff', padding: '16px 36px',
+          borderRadius: '8px', textDecoration: 'none', fontWeight: 600, fontSize: '16px'
+        }}>Start 14-Day Free Trial</a>
+      </section>
+
+      {/* Footer */}
+      <footer style={{
+        borderTop: '1px solid #292524', padding: '24px',
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        maxWidth: '768px', margin: '0 auto', flexWrap: 'wrap', gap: '12px'
+      }}>
+        <span style={{ color: '#78716C', fontSize: '13px' }}>Built for independent restaurants, by an independent restaurant owner.</span>
+        <div style={{ display: 'flex', gap: '24px' }}>
+          <a href="#features" style={{ color: '#78716C', fontSize: '13px', textDecoration: 'none' }}>How It Works</a>
+          <a href="mailto:support@wireach.tools" style={{ color: '#78716C', fontSize: '13px', textDecoration: 'none' }}>support@wireach.tools</a>
+        </div>
+      </footer>
+
     </main>
   )
 }
