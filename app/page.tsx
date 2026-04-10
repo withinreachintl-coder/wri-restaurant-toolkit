@@ -51,6 +51,66 @@ export default function LandingPage() {
           }}>Learn More</a>
         </div>
       </section>
+
+      {/* Features — 2x2 grid */}
+      <section id="features" style={{ padding: '80px 24px', maxWidth: '768px', margin: '0 auto' }}>
+        <p style={{ color: '#D97706', fontSize: '12px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '16px' }}>
+          What You Get
+        </p>
+        <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '36px', fontWeight: 700, marginBottom: '48px' }}>
+          Built for restaurant managers.
+        </h2>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+          {[
+            { icon: '📋', title: 'LP Audits', desc: 'Daily loss prevention checklists with digital sign-off and 30-day history. Know every gap before the inspector does.' },
+            { icon: '🔧', title: 'R&M Tracking', desc: 'Staff submit repairs, managers track status. Photos, timestamps, full accountability from submission to resolution.' },
+            { icon: '📝', title: 'Shift Handoffs', desc: 'Outgoing managers write notes. Incoming managers see priorities before service starts. No more verbal hand-waves.' },
+            { icon: '📊', title: 'Daily Summary', desc: 'Auto-generated end-of-day summary covering ops, repairs, and staffing. Emailed to the owner every night.' },
+          ].map((f) => (
+            <div key={f.title} style={{ background: '#292524', borderRadius: '12px', padding: '28px' }}>
+              <div style={{
+                width: '40px', height: '40px', background: '#1C1917', borderRadius: '8px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: '20px', marginBottom: '20px'
+              }}>{f.icon}</div>
+              <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: '18px', fontWeight: 600, marginBottom: '12px' }}>{f.title}</h3>
+              <p style={{ color: '#A8A29E', fontSize: '14px', lineHeight: 1.6 }}>{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section style={{ padding: '80px 24px', maxWidth: '768px', margin: '0 auto' }}>
+        <p style={{ color: '#D97706', fontSize: '12px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '16px' }}>
+          Pricing
+        </p>
+        <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '36px', fontWeight: 700, marginBottom: '48px' }}>
+          Simple, honest pricing.
+        </h2>
+        <div style={{ background: '#292524', borderRadius: '12px', padding: '40px', border: '1px solid #D97706', maxWidth: '480px' }}>
+          <p style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#D97706', marginBottom: '16px' }}>Pro</p>
+          <p style={{ fontFamily: 'Playfair Display, serif', fontSize: '56px', fontWeight: 700, marginBottom: '8px' }}>
+            $49<span style={{ fontSize: '18px', color: '#A8A29E', fontFamily: 'DM Sans, sans-serif' }}>/month</span>
+          </p>
+          <p style={{ color: '#78716C', fontSize: '14px', marginBottom: '32px' }}>14-day free trial. No credit card required.</p>
+          {[
+            'LP audit checklists with 30-day history',
+            'R&M repair tracking with photo proof',
+            'Shift handoff notes',
+            'Auto daily summary emailed to owner',
+            'Unlimited team members',
+            'Priority support',
+          ].map(item => (
+            <p key={item} style={{ color: '#A8A29E', fontSize: '14px', marginBottom: '12px' }}>✓ {item}</p>
+          ))}
+          <a href="/signup" style={{
+            display: 'block', textAlign: 'center', marginTop: '32px',
+            background: '#D97706', padding: '14px', borderRadius: '8px',
+            color: '#fff', textDecoration: 'none', fontSize: '16px', fontWeight: 600
+          }}>Start 14-Day Free Trial</a>
+        </div>
+      </section>
     </main>
   )
 }
