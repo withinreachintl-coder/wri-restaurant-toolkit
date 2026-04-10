@@ -41,7 +41,7 @@ export default function LandingPage() {
           Loss prevention audits, repair request tracking, shift handoffs, and daily operational summaries. Simplify your restaurant operations with one unified dashboard.
         </p>
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
-          <a href="/signup" style={{
+          <a href="https://buy.stripe.com/4gM28q0SZbZr5Er9eN9k40b" target="_blank" rel="noopener noreferrer" style={{
             background: '#D97706', color: '#fff', padding: '14px 28px',
             borderRadius: '8px', textDecoration: 'none', fontWeight: 600, fontSize: '16px'
           }}>Start 14-Day Free Trial</a>
@@ -104,7 +104,7 @@ export default function LandingPage() {
           ].map(item => (
             <p key={item} style={{ color: '#A8A29E', fontSize: '14px', marginBottom: '12px' }}>✓ {item}</p>
           ))}
-          <a href="/signup" style={{
+          <a href="https://buy.stripe.com/4gM28q0SZbZr5Er9eN9k40b" target="_blank" rel="noopener noreferrer" style={{
             display: 'block', textAlign: 'center', marginTop: '32px',
             background: '#D97706', padding: '14px', borderRadius: '8px',
             color: '#fff', textDecoration: 'none', fontSize: '16px', fontWeight: 600
@@ -120,7 +120,7 @@ export default function LandingPage() {
         <p style={{ color: '#A8A29E', fontSize: '16px', marginBottom: '32px' }}>
           Start your free trial. No credit card. Cancel anytime.
         </p>
-        <a href="/signup" style={{
+        <a href="https://buy.stripe.com/4gM28q0SZbZr5Er9eN9k40b" target="_blank" rel="noopener noreferrer" style={{
           background: '#D97706', color: '#fff', padding: '16px 36px',
           borderRadius: '8px', textDecoration: 'none', fontWeight: 600, fontSize: '16px'
         }}>Start 14-Day Free Trial</a>
