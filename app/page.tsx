@@ -85,9 +85,13 @@ export default function LandingPage() {
         <p style={{ color: '#D97706', fontSize: '12px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '16px' }}>
           Pricing
         </p>
-        <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '36px', fontWeight: 700, marginBottom: '48px' }}>
+        <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '36px', fontWeight: 700, marginBottom: '16px' }}>
           Simple, honest pricing.
         </h2>
+        <p style={{ fontSize: '13px', color: '#A8A29E', marginBottom: '32px', lineHeight: '1.5' }}>
+          Standalone pricing for Toolkit. For all three tools bundled — Daily Ops, Staff Comms, and Toolkit — see the{' '}
+          <a href="https://wireach.tools" style={{ color: '#D97706', textDecoration: 'none' }}>full wireach.tools suite</a>.
+        </p>
         <div style={{ background: '#292524', borderRadius: '12px', padding: '40px', border: '1px solid #D97706', maxWidth: '480px' }}>
           <p style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#D97706', marginBottom: '16px' }}>Pro</p>
           <p style={{ fontFamily: 'Playfair Display, serif', fontSize: '56px', fontWeight: 700, marginBottom: '8px' }}>
