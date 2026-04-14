@@ -3,6 +3,7 @@
 import { supabase } from '@/lib/supabase'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import PwaInstallPrompt from '../components/PwaInstallPrompt'
 
 type DashboardUser = {
   name: string
@@ -142,6 +143,7 @@ export default function DashboardPage() {
           ))}
         </div>
       </div>
+      <PwaInstallPrompt />
     </main>
   )
 }
