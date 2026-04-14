@@ -3,6 +3,7 @@
 import { supabase } from '@/lib/supabase'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import PwaInstallPrompt from '../components/PwaInstallPrompt'
 
 type DashboardUser = {
   name: string
@@ -48,58 +49,53 @@ export default function DashboardPage() {
 
   const handleLogout = async () => {
     await supabase.auth.signOut()
-    window.location.href = '/'
+    window.location.href = '/login'
   }
 
   if (loading) {
     return (
-      <main style={{ background: '#FAFAF9', minHeight: '100vh' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-          <p>Loading...</p>
-        </div>
+      <main style={{ minHeight: '100vh', background: '#F5F0E8', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ fontFamily: 'var(--font-dmsans)', fontSize: '16px', color: '#6B5B4E' }}>Loading...</div>
       </main>
     )
   }
 
   return (
-    <main style={{ background: '#FAFAF9', minHeight: '100vh' }}>
+    <main style={{ minHeight: '100vh', background: '#F5F0E8' }}>
       {/* Header */}
-      <header style={{ background: '#1C1917', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '0 24px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', height: '64px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div>
-            <h1 style={{ fontFamily: 'var(--font-playfair)', fontSize: '20px', fontWeight: 700, color: '#F5F0E8', margin: 0 }}>
-              {user?.org_name}
-            </h1>
-            <p style={{ fontFamily: 'var(--font-dmsans)', fontSize: '12px', color: '#F5F0E8', margin: '4px 0 0 0' }}>
-              Restaurant Toolkit
-            </p>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-            <div style={{ textAlign: 'right' }}>
-              <p style={{ fontFamily: 'var(--font-dmsans)', fontSize: '13px', color: '#F5F0E8', margin: 0 }}>
-                {user?.name}
-              </p>
-              <p style={{ fontFamily: 'var(--font-dmsans)', fontSize: '11px', color: '#F5F0E8', margin: '4px 0 0 0' }}>
-                {user?.role}
-              </p>
-            </div>
-            <button
-              onClick={handleLogout}
-              style={{
-                fontFamily: 'var(--font-dmsans)',
-                fontSize: '13px',
-                fontWeight: 500,
-                color: '#F5F0E8',
-                background: 'transparent',
-                border: '1px solid rgba(255,255,255,0.2)',
-                borderRadius: '4px',
-                padding: '8px 16px',
-                cursor: 'pointer',
-              }}
-            >
-              Sign out
-            </button>
-          </div>
+      <header style={{
+        background: '#1C1917',
+        padding: '0 24px',
+        height: '64px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+      }}>
+        <div style={{ fontFamily: 'var(--font-playfair)', fontSize: '20px', fontWeight: 600, color: '#F5F0E8' }}>
+          WRI Toolkit
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          {user && (
+            <span style={{ fontFamily: 'var(--font-dmsans)', fontSize: '14px', color: '#A89880' }}>
+              {user.name} · {user.org_name}
+            </span>
+          )}
+          <button
+            onClick={handleLogout}
+            style={{
+              fontFamily: 'var(--font-dmsans)',
+              fontSize: '13px',
+              fontWeight: 500,
+              color: '#F5F0E8',
+              background: 'transparent',
+              border: '1px solid rgba(255,255,255,0.2)',
+              borderRadius: '4px',
+              padding: '8px 16px',
+              cursor: 'pointer',
+            }}
+          >
+            Sign out
+          </button>
         </div>
       </header>
 
@@ -142,6 +138,7 @@ export default function DashboardPage() {
           ))}
         </div>
       </div>
+      <PwaInstallPrompt />
     </main>
   )
 }
