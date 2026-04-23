@@ -64,10 +64,21 @@ const nextConfig = {
   async headers() {
     return [
       {
+        // PWA static assets must be publicly accessible (no auth redirect)
         source: '/:file(manifest.json|favicon.ico|icon-192.png|icon-512.png|sw.js|workbox-:hash.js)',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=0, must-revalidate' },
           { key: 'X-Robots-Tag', value: 'noindex' },
+        ],
+      },
+      {
+        // CSP: allow unsafe-eval for Next.js runtime script execution
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;",
+          },
         ],
       },
     ]
