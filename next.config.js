@@ -5,6 +5,9 @@ const withPWA = require('next-pwa')({
   register: true,
   skipWaiting: true,
   disable: process.env.NODE_ENV === 'development',
+  // Exclude PWA install assets from SW precache so Chrome's installability
+  // checker fetches them directly from network (no SW intercept race window)
+  publicExcludes: ['!icon-192.png', '!icon-512.png', '!manifest.json'],
   runtimeCaching: [
     {
       urlPattern: /^https:\/\/.*\.supabase\.co\/rest\/v1\/.*/i,
