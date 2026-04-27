@@ -16,22 +16,22 @@ export default function LandingPage() {
             width: '32px', height: '32px', background: '#D97706',
             borderRadius: '6px', display: 'flex', alignItems: 'center',
             justifyContent: 'center', fontSize: '16px', color: '#fff'
-          }}>✓</div>
+          }}>â</div>
           <span style={{ fontFamily: 'Playfair Display, serif', fontSize: '18px', fontWeight: 700 }}>Restaurant Toolkit</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-          <a href="#features" style={{ color: '#F5F0E8', textDecoration: 'none', fontSize: '15px' }}>How It Works</a>
-          <a href="/login" style={{
-            border: '1px solid #F5F0E8', padding: '8px 20px',
-            borderRadius: '6px', color: '#F5F0E8', textDecoration: 'none', fontSize: '15px'
-          }}>Log In</a>
+          <a href="https://ops.wireach.tools" style={{ color: '#F5F0E8', textDecoration: 'none', fontSize: '15px' }}>Daily Ops</a>
+          <a href="https://staff.wireach.tools" style={{ color: '#F5F0E8', textDecoration: 'none', fontSize: '15px' }}>Staff Comms</a>
+          <span style={{ color: '#A8A29E', fontSize: '15px', fontWeight: 700 }}>Toolkit</span>
+          <a href="#pricing" style={{ color: '#F5F0E8', textDecoration: 'none', fontSize: '15px' }}>Pricing</a>
+          <a href="/login" style={{ border: '1px solid #F5F0E8', padding: '8px 20px', borderRadius: '6px', color: '#F5F0E8', textDecoration: 'none', fontSize: '15px' }}>Sign In</a>
         </div>
       </nav>
 
       {/* Hero */}
       <section style={{ paddingTop: '160px', paddingBottom: '80px', paddingLeft: '24px', paddingRight: '24px', maxWidth: '768px', margin: '0 auto' }}>
         <p style={{ color: '#D97706', fontSize: '12px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '24px' }}>
-          For Restaurant Managers
+          For Independent Restaurants
         </p>
         <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: '52px', lineHeight: 1.1, fontWeight: 700, marginBottom: '24px' }}>
           Every shift. Every repair. Every handoff.{' '}
@@ -45,14 +45,11 @@ export default function LandingPage() {
             background: '#D97706', color: '#fff', padding: '14px 28px',
             borderRadius: '8px', textDecoration: 'none', fontWeight: 600, fontSize: '16px'
           }}>Start 14-Day Free Trial</a>
-          <a href="#features" style={{
-            border: '1px solid #57534E', color: '#F5F0E8', padding: '14px 28px',
-            borderRadius: '8px', textDecoration: 'none', fontSize: '16px'
-          }}>Learn More</a>
+
         </div>
       </section>
 
-      {/* Features — 2x2 grid */}
+      {/* Features â 2x2 grid */}
       <section id="features" style={{ padding: '80px 24px', maxWidth: '768px', margin: '0 auto' }}>
         <p style={{ color: '#D97706', fontSize: '12px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '16px' }}>
           What You Get
@@ -62,10 +59,10 @@ export default function LandingPage() {
         </h2>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
           {[
-            { icon: '📋', title: 'LP Audits', desc: 'Daily loss prevention checklists with digital sign-off and 30-day history. Know every gap before the inspector does.' },
-            { icon: '🔧', title: 'R&M Tracking', desc: 'Staff submit repairs, managers track status. Photos, timestamps, full accountability from submission to resolution.' },
-            { icon: '📝', title: 'Shift Handoffs', desc: 'Outgoing managers write notes. Incoming managers see priorities before service starts. No more verbal hand-waves.' },
-            { icon: '📊', title: 'Daily Summary', desc: 'Auto-generated end-of-day summary covering ops, repairs, and staffing. Emailed to the owner every night.' },
+            { icon: 'ð', title: 'LP Audits', desc: 'Daily loss prevention checklists with digital sign-off and 30-day history. Know every gap before the inspector does.' },
+            { icon: 'ð§', title: 'R&M Tracking', desc: 'Staff submit repairs, managers track status. Photos, timestamps, full accountability from submission to resolution.' },
+            { icon: 'ð', title: 'Shift Handoffs', desc: 'Outgoing managers write notes. Incoming managers see priorities before service starts. No more verbal hand-waves.' },
+            { icon: 'ð', title: 'Daily Summary', desc: 'Auto-generated end-of-day summary covering ops, repairs, and staffing. Emailed to the owner every night.' },
           ].map((f) => (
             <div key={f.title} style={{ background: '#292524', borderRadius: '12px', padding: '28px' }}>
               <div style={{
@@ -102,7 +99,7 @@ export default function LandingPage() {
             'Unlimited team members',
             'Priority support',
           ].map(item => (
-            <p key={item} style={{ color: '#A8A29E', fontSize: '14px', marginBottom: '12px' }}>✓ {item}</p>
+            <p key={item} style={{ color: '#A8A29E', fontSize: '14px', marginBottom: '12px' }}>â {item}</p>
           ))}
           <a href="https://buy.stripe.com/4gM28q0SZbZr5Er9eN9k40b" target="_blank" rel="noopener noreferrer" style={{
             display: 'block', textAlign: 'center', marginTop: '32px',
