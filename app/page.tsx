@@ -21,17 +21,18 @@ export default function LandingPage() {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
           <a href="#features" style={{ color: '#F5F0E8', textDecoration: 'none', fontSize: '15px' }}>How It Works</a>
-          <a href="/login" style={{
-            border: '1px solid #F5F0E8', padding: '8px 20px',
-            borderRadius: '6px', color: '#F5F0E8', textDecoration: 'none', fontSize: '15px'
-          }}>Log In</a>
+          <a href="https://ops.wireach.tools" style={{ color: '#F5F0E8', textDecoration: 'none', fontSize: '15px' }}>Daily Ops</a>
+          <a href="https://staff.wireach.tools" style={{ color: '#F5F0E8', textDecoration: 'none', fontSize: '15px' }}>Staff Comms</a>
+          <span style={{ color: '#A8A29E', fontSize: '15px', fontWeight: 700 }}>Toolkit</span>
+          <a href="#pricing" style={{ color: '#F5F0E8', textDecoration: 'none', fontSize: '15px' }}>Pricing</a>
+          <a href="/login" style={{ border: '1px solid #F5F0E8', padding: '8px 20px', borderRadius: '6px', color: '#F5F0E8', textDecoration: 'none', fontSize: '15px' }}>Sign In</a>
         </div>
       </nav>
 
       {/* Hero */}
       <section style={{ paddingTop: '160px', paddingBottom: '80px', paddingLeft: '24px', paddingRight: '24px', maxWidth: '768px', margin: '0 auto' }}>
         <p style={{ color: '#D97706', fontSize: '12px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '24px' }}>
-          For Restaurant Managers
+          For Independent Restaurants
         </p>
         <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: '52px', lineHeight: 1.1, fontWeight: 700, marginBottom: '24px' }}>
           Every shift. Every repair. Every handoff.{' '}
@@ -45,10 +46,7 @@ export default function LandingPage() {
             background: '#D97706', color: '#fff', padding: '14px 28px',
             borderRadius: '8px', textDecoration: 'none', fontWeight: 600, fontSize: '16px'
           }}>Start 14-Day Free Trial</a>
-          <a href="#features" style={{
-            border: '1px solid #57534E', color: '#F5F0E8', padding: '14px 28px',
-            borderRadius: '8px', textDecoration: 'none', fontSize: '16px'
-          }}>Learn More</a>
+
         </div>
       </section>
 
