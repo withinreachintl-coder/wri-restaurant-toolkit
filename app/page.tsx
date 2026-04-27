@@ -20,6 +20,7 @@ export default function LandingPage() {
           <span style={{ fontFamily: 'Playfair Display, serif', fontSize: '18px', fontWeight: 700 }}>Restaurant Toolkit</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+          <a href="#features" style={{ color: '#F5F0E8', textDecoration: 'none', fontSize: '15px' }}>How It Works</a>
           <a href="https://ops.wireach.tools" style={{ color: '#F5F0E8', textDecoration: 'none', fontSize: '15px' }}>Daily Ops</a>
           <a href="https://staff.wireach.tools" style={{ color: '#F5F0E8', textDecoration: 'none', fontSize: '15px' }}>Staff Comms</a>
           <span style={{ color: '#A8A29E', fontSize: '15px', fontWeight: 700 }}>Toolkit</span>
