@@ -63,17 +63,17 @@ function SignupForm() {
 
   return (
     <main style={{ background: '#1C1917', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
-      <div style={{ maxWidth: '400px', width: '100%', background: '#FFFFFF', border: '1px solid #E5E0D8', borderRadius: '8px', padding: '32px' }}>
-        <h1 style={{ fontFamily: 'var(--font-playfair)', fontSize: '24px', fontWeight: 600, color: '#1C1917', marginBottom: '8px' }}>
+      <div style={{ maxWidth: '420px', width: '100%', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '8px', padding: '32px' }}>
+        <h1 style={{ fontFamily: 'var(--font-playfair)', fontSize: '28px', fontWeight: 700, color: '#F5F0E8', marginBottom: '8px' }}>
           Create Your Account
         </h1>
-        <p style={{ fontFamily: 'var(--font-dmsans)', fontSize: '14px', color: '#6B5B4E', marginBottom: '32px' }}>
+        <p style={{ fontFamily: 'var(--font-dmsans)', fontSize: '14px', color: '#F5F0E8', marginBottom: '32px' }}>
           Set up your restaurant toolkit
         </p>
 
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: '20px' }}>
-            <label style={{ fontFamily: 'var(--font-dmsans)', fontSize: '13px', fontWeight: 500, color: '#1C1917', display: 'block', marginBottom: '8px' }}>
+            <label style={{ fontFamily: 'var(--font-dmsans)', fontSize: '13px', fontWeight: 500, color: '#F5F0E8', display: 'block', marginBottom: '8px' }}>
               Restaurant Name
             </label>
             <input
@@ -87,16 +87,17 @@ function SignupForm() {
                 fontFamily: 'var(--font-dmsans)',
                 fontSize: '14px',
                 padding: '12px 16px',
-                border: '1px solid #E5E0D8',
+                background: 'rgba(255,255,255,0.06)',
+                border: '1px solid rgba(255,255,255,0.12)',
                 borderRadius: '4px',
                 boxSizing: 'border-box',
-                color: '#1C1917',
+                color: '#F5F0E8',
               }}
             />
           </div>
 
           <div style={{ marginBottom: '20px' }}>
-            <label style={{ fontFamily: 'var(--font-dmsans)', fontSize: '13px', fontWeight: 500, color: '#1C1917', display: 'block', marginBottom: '8px' }}>
+            <label style={{ fontFamily: 'var(--font-dmsans)', fontSize: '13px', fontWeight: 500, color: '#F5F0E8', display: 'block', marginBottom: '8px' }}>
               Your Name
             </label>
             <input
@@ -110,20 +111,21 @@ function SignupForm() {
                 fontFamily: 'var(--font-dmsans)',
                 fontSize: '14px',
                 padding: '12px 16px',
-                border: '1px solid #E5E0D8',
+                background: 'rgba(255,255,255,0.06)',
+                border: '1px solid rgba(255,255,255,0.12)',
                 borderRadius: '4px',
                 boxSizing: 'border-box',
-                color: '#1C1917',
+                color: '#F5F0E8',
               }}
             />
           </div>
 
-          <div style={{ marginBottom: '20px', padding: '12px 16px', background: '#F3F4F6', borderRadius: '4px', fontFamily: 'var(--font-dmsans)', fontSize: '13px', color: '#6B5B4E' }}>
+          <div style={{ marginBottom: '20px', padding: '12px 16px', background: 'rgba(255,255,255,0.06)', borderRadius: '4px', fontFamily: 'var(--font-dmsans)', fontSize: '13px', color: '#F5F0E8' }}>
             Email: {email}
           </div>
 
           {error && (
-            <div style={{ color: '#DC2626', fontSize: '13px', marginBottom: '16px', padding: '12px', background: '#FEE2E2', borderRadius: '4px' }}>
+            <div style={{ color: '#DC2626', fontSize: '13px', marginBottom: '16px', padding: '12px', background: 'rgba(220,38,38,0.1)', borderRadius: '4px' }}>
               {error}
             </div>
           )}
@@ -137,8 +139,8 @@ function SignupForm() {
               color: '#1C1917',
               fontFamily: 'var(--font-dmsans)',
               fontSize: '14px',
-              fontWeight: 500,
-              padding: '12px 24px',
+              fontWeight: 600,
+              padding: '14px 24px',
               borderRadius: '4px',
               border: 'none',
               cursor: loading ? 'not-allowed' : 'pointer',
