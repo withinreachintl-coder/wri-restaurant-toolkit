@@ -25,9 +25,11 @@ CREATE INDEX idx_organizations_owner_email ON organizations(owner_email);
 -- ============================================================================
 -- USERS TABLE
 -- ============================================================================
+-- public.users.id IS auth.users.id (single-ID model, SPEC-0013).
+-- INSERTs gated to service role only — writes go through
+-- app/auth/callback/route.ts on first login.
 CREATE TABLE users (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  auth_id UUID NOT NULL UNIQUE, -- Supabase auth.users.id
+  id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
   email VARCHAR(255) NOT NULL,
   name VARCHAR(255) NOT NULL,
   org_id UUID NOT NULL REFERENCES organizations(id) ON DELETE CASCADE,
@@ -37,7 +39,6 @@ CREATE TABLE users (
 );
 
 CREATE INDEX idx_users_org_id ON users(org_id);
-CREATE INDEX idx_users_auth_id ON users(auth_id);
 CREATE INDEX idx_users_email ON users(email);
 
 -- ============================================================================
@@ -130,21 +131,22 @@ ALTER TABLE shift_handoffs ENABLE ROW LEVEL SECURITY;
 ALTER TABLE daily_summaries ENABLE ROW LEVEL SECURITY;
 
 -- Helper function: Get user's organization
+-- SPEC-0013: uses public.users.id = auth.uid() directly (no auth_id column).
 CREATE OR REPLACE FUNCTION get_user_org_id()
 RETURNS UUID AS $$
-SELECT org_id FROM users WHERE auth_id = auth.uid() LIMIT 1;
+SELECT org_id FROM users WHERE id = auth.uid() LIMIT 1;
 $$ LANGUAGE SQL STABLE;
 
--- Organizations: Owner can see/edit their own org
+-- Organizations: Owner can see their own org
+-- SPEC-0013: no INSERT or UPDATE policy — writes go through service-role
+-- callback at app/auth/callback/route.ts.
 CREATE POLICY "Users can view their own org" ON organizations
   FOR SELECT USING (id = get_user_org_id());
 
 -- Users: Can see other users in same org
+-- SPEC-0013: no client INSERT policy — writes go through service-role callback.
 CREATE POLICY "Users can view org members" ON users
   FOR SELECT USING (org_id = get_user_org_id());
-
-CREATE POLICY "Users can insert themselves" ON users
-  FOR INSERT WITH CHECK (org_id = get_user_org_id());
 
 -- LP Audits: Can view/insert/update audits in own org
 CREATE POLICY "Users can view org LP audits" ON lp_audits
@@ -175,6 +177,16 @@ CREATE POLICY "Users can view org daily summaries" ON daily_summaries
   FOR SELECT USING (org_id = get_user_org_id());
 
 -- ============================================================================
+-- TABLE COMMENTS (trust boundary documentation, SPEC-0013)
+-- ============================================================================
+
+COMMENT ON TABLE organizations IS
+  'INSERTs and UPDATEs gated to service role only (no RLS policies). All writes go through app/auth/callback/route.ts on first login. SPEC-0013.';
+
+COMMENT ON TABLE users IS
+  'INSERTs gated to service role only (no client INSERT policy). Writes go through app/auth/callback/route.ts on first login. public.users.id = auth.users.id (FK, ON DELETE CASCADE). SPEC-0013.';
+
+-- ============================================================================
 -- DEFAULT LP AUDIT ITEMS
 -- ============================================================================
 -- These will be used as a template when creating new audits
@@ -185,6 +197,15 @@ CREATE TABLE lp_audit_templates (
   items JSONB NOT NULL, -- [{id, title, category}]
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
+
+-- SPEC-0013: any authenticated user can read templates (app-public read data).
+ALTER TABLE lp_audit_templates ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "anyone authenticated can read templates"
+  ON lp_audit_templates
+  FOR SELECT
+  TO authenticated
+  USING (true);
 
 -- Insert default template
 INSERT INTO lp_audit_templates (name, items) VALUES (
