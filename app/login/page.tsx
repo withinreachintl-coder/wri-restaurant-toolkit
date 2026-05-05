@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
+import { supabase } from '@/lib/supabase'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -15,26 +16,20 @@ export default function LoginPage() {
     setError('')
     setMessage('')
 
-    try {
-      const res = await fetch('/api/auth/signin', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      })
+    const { error: authError } = await supabase.auth.signInWithOtp({
+      email,
+      options: {
+        emailRedirectTo: `${window.location.origin}/auth/callback?next=/dashboard`,
+      },
+    })
 
-      const data = await res.json()
-
-      if (!res.ok) {
-        setError(data.error || 'Failed to send magic link')
-      } else {
-        setMessage('Check your email for the magic link!')
-        setEmail('')
-      }
-    } catch (err) {
-      setError('An error occurred. Please try again.')
-    } finally {
-      setLoading(false)
+    if (authError) {
+      setError(authError.message)
+    } else {
+      setMessage('Check your email for the magic link!')
+      setEmail('')
     }
+    setLoading(false)
   }
 
   return (

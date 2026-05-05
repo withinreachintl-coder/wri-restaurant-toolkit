@@ -31,6 +31,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Claude Code per-session local settings
+.claude/
+
 # typescript
 *.tsbuildinfo
 # PWA build artifacts
